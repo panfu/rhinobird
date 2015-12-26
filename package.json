@@ -16,6 +16,6 @@
     "leanengine": "^0.2.0"
   },
   "devDependencies": {
-    
+    "nightwatch": "^0.8.9"
   }
 }

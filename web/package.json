@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nightwatch",
     "dev": "webpack-dev-server --inline --hot --content-base public/",
     "dist": "webpack -p -d"
   },
@@ -20,6 +20,7 @@
     "babel-core": "^5.8.34",
     "babel-loader": "^5.3.3",
     "control": "^0.2.3",
+    "nightwatch": "^0.8.9",
     "riot": "^2.3.12",
     "riotcontrol": "0.0.1",
     "riotjs-loader": "^1.2.0",
