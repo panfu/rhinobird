@@ -1,0 +1,29 @@
+{
+  "name": "rhinobird-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --inline --hot --content-base public/",
+    "dist": "webpack -p -d"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express-cors": "0.0.3",
+    "leanengine": "^0.1.5"
+  },
+  "devDependencies": {
+    "babel": "^5.8.34",
+    "babel-core": "^5.8.34",
+    "babel-loader": "^5.3.3",
+    "control": "^0.2.3",
+    "riot": "^2.3.12",
+    "riotcontrol": "0.0.1",
+    "riotjs-loader": "^1.2.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  }
+}

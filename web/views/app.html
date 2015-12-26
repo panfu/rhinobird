@@ -1,0 +1,17 @@
+<app>
+  <div id="container">
+    <h4>hello { hello }</h4>
+  </div>
+
+  <script type="es6">
+    this.hello = 'world';
+
+    this.on('mount', () => {
+      console.log(1);
+      setTimeout(() => {
+        this.hello = '<<<<<<<--- kaCHa';
+        this.update();
+      }, 2000)
+    });
+  </script>
+</app>
