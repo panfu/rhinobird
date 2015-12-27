@@ -11,11 +11,10 @@ cache:
     - ~/.nvm
     - node_modules
 before_script:
-  - npm install
   - chmod +x ./scripts/deploy.sh
 deploy:
   provider: script
-  script: scripts/deploy.sh
+  script: ./scripts/deploy.sh
   # on:
   # 	branch: develop
 # after_success:
