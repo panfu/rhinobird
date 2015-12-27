@@ -10,7 +10,7 @@ describe('测试 API', function() {
   // 指定服务
   var server;
   beforeEach(function () {
-    server = require('./../server');
+    server = require('./../server')();
   });
   afterEach(function () {
     server.close();

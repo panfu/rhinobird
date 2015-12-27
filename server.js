@@ -8,7 +8,7 @@
 'use strict';
 
 // 以下结构还需优化
-// function makeServer() {
+function makeServer() {
   var AV = require('leanengine');
 
   var APP_ID = process.env.LC_APP_ID;
@@ -28,7 +28,7 @@
   var server = app.listen(PORT, function () {
     console.log('Node app is running, port:', PORT, '\n');
   });
-  // return server;
-// }
+  return server;
+}
 
-module.exports = server;
+module.exports = makeServer;
