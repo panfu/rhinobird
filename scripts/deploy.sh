@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e # exit with nonzero exit code if anything fails
+# set -e # exit with nonzero exit code if anything fails
 
 mkdir -p ~/.leancloud
 echo "{\"$LC_APP_ID\":{\"masterKey\":\"$LC_APP_MASTER_KEY\",\"appKey\":\"$LC_APP_KEY\"}}" > ~/.leancloud/app_keys
