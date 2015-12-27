@@ -1,10 +1,13 @@
-var request = require('supertest')
-  // , server = require('./../server')
-  , assert = require('assert')
-  , should = require('should')
+/* jshint undef: false, unused: true */
+/* globals it, beforeEach, afterEach */
+'use strict';
+
+var request = require('supertest');
+  // assert = require('assert'),
+  // should = require('should');
   // cookie, session 未来或用得上
-  , cookieParser = require('cookie-parser')
-  , session = require('express-session');
+  // cookieParser = require('cookie-parser'),
+  // session = require('express-session');
 
 describe('测试 API', function() {
   // 指定服务
@@ -32,6 +35,6 @@ describe('测试 API', function() {
           res.body.should.have.property('hello');
           done();
         });
-    })
+    });
   });
 });

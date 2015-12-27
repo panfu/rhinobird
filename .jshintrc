@@ -11,11 +11,14 @@
   "newcap": true,
   "noarg": true,
   "quotmark": "single",
-  "undef": true,
+  "undef": false,
   "unused": false,
   "strict": true,
   "esnext": true,
   "node": true,
+  "predef": [
+    "describe"
+  ],
   "globals": {
   }
 }
