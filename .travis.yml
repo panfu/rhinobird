@@ -10,17 +10,16 @@ cache:
   directories:
     - ~/.nvm
     - node_modules
-before_script:
-  - chmod +x ./scripts/deploy.sh
-deploy:
-  provider: script
-  script: ./scripts/deploy.sh
+# before_script:
+#   - chmod +x ./scripts/deploy.sh
+# deploy:
+#   provider: script
+#   script: ./scripts/deploy.sh
   # on:
   # 	branch: develop
-# after_success:
-#   - npm install avoscloud-code
-#   - mkdir -p ~/.leancloud
-#   - echo "{\"$LC_APP_ID\":{\"masterKey\":\"$LC_APP_MASTER_KEY\",\"appKey\":\"$LC_APP_KEY\"}}" > ~/.leancloud/app_keys
-#   - cat ~/.leancloud/app_keys
-#   - avoscloud add rhinobird $LC_APP_ID
-#   - avoscloud deploy -g
+after_success:
+  - mkdir -p ~/.leancloud
+  - echo "{\"$LC_APP_ID\":{\"masterKey\":\"$LC_APP_MASTER_KEY\",\"appKey\":\"$LC_APP_KEY\"}}" > ~/.leancloud/app_keys
+  - cat ~/.leancloud/app_keys
+  - avoscloud add rhinobird $LC_APP_ID
+  - avoscloud deploy -g
