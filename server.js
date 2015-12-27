@@ -31,4 +31,4 @@ function makeServer() {
   return server;
 }
 
-module.exports = makeServer;
+module.exports = makeServer();

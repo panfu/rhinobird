@@ -2,3 +2,8 @@ language: node_js
 node_js:
   - "5.3"
   - "4.2"
+after_success:
+  - npm install avoscloud-code
+  - echo "{\"$LC_APP_ID\":{\"masterKey\":\"$LC_APP_MASTER_KEY\",\"appKey\":\"$LC_APP_KEY\"}}" > ~/.leancloud/app_keys
+  - echo "{\"$LC_APP_ID\":{\"masterKey\":\"$LC_APP_MASTER_KEY\",\"appKey\":\"$LC_APP_KEY\"}}" > ~/.avoscloud_keys
+  - avoscloud deploy -g
