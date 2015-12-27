@@ -2,9 +2,9 @@
 /* globals it, beforeEach, afterEach */
 'use strict';
 
-var request = require('supertest');
+var request = require('supertest'),
   // assert = require('assert'),
-  // should = require('should');
+  should = require('should');
   // cookie, session 未来或用得上
   // cookieParser = require('cookie-parser'),
   // session = require('express-session');
