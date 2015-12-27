@@ -1,4 +1,5 @@
 var request = require('supertest')
+  // , server = require('./../server')
   , assert = require('assert')
   , should = require('should')
   // cookie, session 未来或用得上
@@ -6,15 +7,17 @@ var request = require('supertest')
   , session = require('express-session');
 
 describe('测试 API', function() {
-  // 指定服务根目录
-  var url = 'http://localhost:3000';
-  before(function(done) {
-    // 连个数据库、云服务啥的。
-    done();
+  // 指定服务
+  var server;
+  beforeEach(function () {
+    server = require('./../server');
+  });
+  afterEach(function () {
+    server.close();
   });
   describe('/api/hello', function() {
     it('should works.', function (done) {
-      request(url)
+      request(server)
         .get('/api/hello')
         .expect('Content-Type', /json/)
         // json 验证
