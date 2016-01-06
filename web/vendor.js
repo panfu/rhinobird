@@ -1,14 +1,14 @@
-require('./css/main.css')
-import 'riot'
-const RiotControl = require('riotcontrol')
-require('./vendor/jquery')
-require('./vendor/Promise.min')
+require('./css/main.css');
+import 'riot';
+const RiotControl = require('riotcontrol');
+require('./vendor/jquery');
+const Promise = require('promise-polyfill/Promise');
 // require('./vendor/av')
 
 // AV.initialize("A", "B")
 
 riot.app = {
 
-}
+};
 
-riot.control = RiotControl
+riot.control = RiotControl;
