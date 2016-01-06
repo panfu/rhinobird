@@ -19,6 +19,9 @@ module.exports = {
       { test: /\.js$/, include: /web/, loader: 'babel', query: {modules: 'common'} },
     ],
   },
+  // externals: {
+  //   "jquery": "jQuery"
+  // },
   plugins: [
     new webpack.ProvidePlugin({
       riot: 'riot',
