@@ -4,9 +4,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node --harmony server.js",
-    "dev": "webpack-dev-server --inline --hot --content-base public/",
+    "dev": "webpack-dev-server --inline --hot --content-base ./web/public/",
     "build": "webpack -p -d",
-    "test": "webpack -p -d;mocha"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
