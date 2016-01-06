@@ -15,7 +15,7 @@ describe('初体验', () => {
   before(() => {
     this.server = app.listen(5000);
     Browser.localhost('example.com', 5000);
-    this.browser = new Browser();
+    this.browser = new Browser({waitDuration: 30*1000});
     return this.browser.visit('/');
   });
   after(() => {

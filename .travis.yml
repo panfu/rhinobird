@@ -20,6 +20,7 @@ cache:
     - ~/.nvm
     # - node_modules
 before_script:
+  - export DEBUG=zombie
   - npm run-script build
 # deploy:
 #   provider: script
