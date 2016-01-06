@@ -4,13 +4,13 @@ const path = require('path');
 module.exports = {
   cache: true,
   entry: {
-    app: './app.js',
-    vendor: './vendor.js',
+    app: './web/app',
+    vendor: './web/vendor',
   },
   output: {
-    path: path.join(__dirname, '/public/dist'),
+    path: path.join(__dirname, '/web/dist'),
     publicPath: '/assets/',
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
   },
   module: {
     loaders: [
@@ -20,15 +20,13 @@ module.exports = {
     ],
   },
   plugins: [
-    // ["transform-es2015-modules-commonjs", { "allowTopLevelThis": true }],
     new webpack.ProvidePlugin({
       riot: 'riot',
-      RiotControl: 'RiotControl'
+      // RiotControl: 'RiotControl'
     }),
-    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js'),
   ],
   devServer: {
-    port: 5555,
+    port: 5000,
   },
   devtool: 'source-map',
 }

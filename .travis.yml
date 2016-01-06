@@ -1,11 +1,12 @@
 language: node_js
 node_js:
-  - "5.3"
+  - "4.2"
   # - "0.12"
 branches:
   only:
     - master
     - stable
+    - anytry
 cache:
   directories:
     - ~/.nvm

@@ -8,7 +8,7 @@
 'use strict';
 
 // babel 编译
-require('babel-core/register');
+// require('babel-core/register');
 
 const domain = require('domain');
 const express = require('express');
@@ -27,7 +27,8 @@ const config = require('./config');
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'ejs');
 
-app.use(express.static('public'));
+app.use('/', express.static(__dirname + '/../web/public'));
+app.use('/assets/', express.static(__dirname + '/../web/dist'));
 
 // 使用 LeanEngine 中间件
 app.use(AV.Cloud);
@@ -65,14 +66,19 @@ app.all('/api/*', (req, res, next) => {
   next();
 });
 
+// app.get('/', (req, res, next) => {
+//   res.render('index');
+// });
+
 // api
 app.use('/api', apiRouter);
 
 // 如果任何路由都没匹配到，则认为 404
 // 生成一个异常让后面的 err handler 捕获
-app.use((req, res, next) => {
-  // res.sendFile(path.dirname(require.main.filename) + '/public/index.html');
-  // res.status(404);
-});
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
 module.exports = app;

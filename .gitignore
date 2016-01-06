@@ -1,5 +1,10 @@
 .avoscloud/
 node_modules/
 npm-debug.log
-.avoscloud/
 reports/
+bower_components/
+.sass-cache/
+.idea/
+.tmp/
+dist/
+zak/

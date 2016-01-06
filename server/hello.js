@@ -16,7 +16,9 @@ let pub = {};
 pub.hello = (req, res) => {
   tool.l('It works.');
   res.send({
-    hello: 'It works.'
+    hello: 'It works.',
+    one: '1',
+    two: '2'
   });
 };
 
