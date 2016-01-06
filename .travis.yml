@@ -1,17 +1,28 @@
 language: node_js
 node_js:
-  - "5.3"
-  # - "0.12"
+  - "4.2"
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+  # - "iojs"
 branches:
   only:
     - master
     - stable
+    - anytry
 cache:
   directories:
     - ~/.nvm
-    - node_modules
-# before_script:
-#   - chmod +x ./scripts/deploy.sh
+    # - node_modules
+before_script:
+  # - export DEBUG=zombie
+  - npm install -g avoscloud-code
+  - npm run-script build
 # deploy:
 #   provider: script
 #   script: ./scripts/deploy.sh
@@ -22,4 +33,5 @@ after_success:
   - echo "{\"$LC_APP_ID\":{\"masterKey\":\"$LC_APP_MASTER_KEY\",\"appKey\":\"$LC_APP_KEY\"}}" > ~/.leancloud/app_keys
   - cat ~/.leancloud/app_keys
   - avoscloud add rhinobird $LC_APP_ID
-  - avoscloud deploy -g
+  - rm -rf node_modules
+  - avoscloud deploy
