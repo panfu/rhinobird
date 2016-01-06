@@ -22,7 +22,7 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       riot: 'riot',
-      RiotControl: 'RiotControl'
+      // RiotControl: 'RiotControl'
     }),
   ],
   devServer: {
