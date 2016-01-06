@@ -4,7 +4,7 @@
 var Browser = require('zombie'),
 browser = new Browser();
 
-describe('测试远程地址', function(){
+describe.skip('测试远程地址', function(){
 
   it('百度一下', function(done){
 
