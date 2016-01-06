@@ -6,7 +6,7 @@
     "start": "node --harmony server.js",
     "dev": "webpack-dev-server --inline --hot --content-base public/",
     "build": "webpack -p -d",
-    "test": "mocha"
+    "test": "webpack -p -d;mocha"
   },
   "repository": {
     "type": "git",
