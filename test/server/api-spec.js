@@ -13,7 +13,7 @@ describe('API', function() {
   // 指定服务
   var server;
   before(function () {
-    server = require('./../server');
+    server = require('../../server');
   });
   after(function () {
     server.close();
@@ -41,5 +41,15 @@ describe('API', function() {
   describe('/api/posts', function() {
     it('index');
     it('create');
+  });
+
+  describe('/api/comments', function() {
+    it('index');
+    it('create');
+  });
+
+  describe('/api/votes', function() {
+    it('可以看到投票列表');
+    it('可以创建投票');
   });
 });
