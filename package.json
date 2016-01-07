@@ -26,6 +26,7 @@
     "express-session": "^1.12.1",
     "jquery": "^2.1.4",
     "leanengine": "^0.2.0",
+    "lodash": "^3.10.1",
     "promise-polyfill": "^2.1.0",
     "riot": "^2.3.12",
     "riotcontrol": "0.0.3",

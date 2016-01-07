@@ -18,7 +18,7 @@ branches:
 cache:
   directories:
     - ~/.nvm
-    # - node_modules
+    - node_modules
 before_script:
   # - export DEBUG=zombie
   - npm install -g avoscloud-code
