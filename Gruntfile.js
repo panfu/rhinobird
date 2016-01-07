@@ -1,4 +1,5 @@
 var webpack = require("webpack");
+var _ = require("lodash");
 
 module.exports = function(grunt) {
 
@@ -8,38 +9,8 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     webpack: {
-      dev: {
-        cache: true,
-        entry: {
-          app: './web/app',
-          vendor: './web/vendor',
-        },
-        output: {
-          path: './dist',
-          publicPath: '/assets/',
-          filename: '[name].bundle.js',
-        },
-        module: {
-          loaders: [
-            { test: /\.css$/, include: /web/, loader: 'style!css' },
-            { test: /\.html$/, include: /web/, loader: 'riotjs' },
-            { test: /\.js$/, include: /web/, loader: 'babel', query: {modules: 'common'} },
-          ],
-        },
-        plugins: [
-          new webpack.ProvidePlugin({
-            riot: 'riot',
-            RiotControl: 'riotcontrol',
-            Promise: 'promise-polyfill/Promise',
-            jQuery: 'jquery',
-            // AV: 'leanengine'
-          }),
-        ],
-        devServer: {
-          port: 5000,
-        },
-        devtool: 'source-map',
-
+      dev: _.merge({}, require('./webpack.config.js'), {
+        devServer: false,
         stats: {
           // Configure the console output
           colors: true,
@@ -48,10 +19,10 @@ module.exports = function(grunt) {
         },
         // stats: false disables the stats output
 
-        storeStatsTo: "xyz", // writes the status to a variable named xyz
+        // storeStatsTo: "xyz", // writes the status to a variable named xyz
         // you may use it later in grunt i.e. <%= xyz.hash %>
 
-        progress: true, // Don't show progress
+        progress: false, // Don't show progress
         // Defaults to true
 
         failOnError: false, // don't report error to grunt if webpack find errors
@@ -60,17 +31,21 @@ module.exports = function(grunt) {
         watch: false, // use webpacks watcher
         // You need to keep the grunt process alive
 
-        keepalive: false, // don't finish the grunt task
+        keepalive: false // don't finish the grunt task
         // Use this in combination with the watch option
 
-        inline: true,  // embed the webpack-dev-server runtime into the bundle
+        // inline: true,  // embed the webpack-dev-server runtime into the bundle
         // Defaults to false
 
         // hot: true, // adds the HotModuleReplacementPlugin and switch the server to hot mode
         // Use this in combination with the inline option
-
-      }
+      })
     },
+    // "webpack-dev-server": {
+    //   dev: {
+    //     webpack: _.merge({}, require('./webpack.config.js'), {})
+    //   }
+    // },
     simplemocha:{
       dev:{
         src:['test/*.js', 'test/**/*.js'],
@@ -78,10 +53,9 @@ module.exports = function(grunt) {
           ui: 'bdd',
           reporter: 'list',
           globals: ['window','document','$','should'],
-          timeout: 3000,
           retries: 2,
           bail: false,
-          slow: 2000,
+          slow: 20000,
           ignoreLeaks: false,
           fullTrace: true,
           growl: true,
@@ -99,10 +73,10 @@ module.exports = function(grunt) {
         }
       },
       dev:{
-        files:['server/*', 'web/*.js', 'web/*/*', 'test/*.js', 'test/*/*', '*.js'],
+        files:['server/*', 'web/*.js', 'web/*/*', 'test/*.js', 'test/*/*', './*.js'],
         tasks:['buildDev', 'test'],
         options: {
-          debounceDelay: 250,
+          debounceDelay: 250
         },
       }
     }
