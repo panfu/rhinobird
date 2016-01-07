@@ -22,6 +22,7 @@ cache:
 before_script:
   # - export DEBUG=zombie
   - npm install -g avoscloud-code
+  - npm install -g grunt
   - npm run-script build
 # deploy:
 #   provider: script
