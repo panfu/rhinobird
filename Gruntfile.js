@@ -55,7 +55,6 @@ module.exports = function(grunt) {
           globals: ['window','document','$','should'],
           retries: 2,
           bail: false,
-          slow: 20000,
           ignoreLeaks: false,
           fullTrace: true,
           growl: true,
