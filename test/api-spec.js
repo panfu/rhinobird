@@ -1,34 +1,45 @@
 /* jshint undef: false, unused: true */
-/* globals it, before, after, beforeEach, afterEach */
-
+/* globals it, beforeEach, afterEach */
 'use strict';
-const assert = require('assert');
 
-const Browser = require('zombie');
+var request = require('supertest');
+  // assert = require('assert'),
+  // should = require('should');
+  // cookie, session 未来或用得上
+  // cookieParser = require('cookie-parser'),
+  // session = require('express-session');
 
-const app = require('../server/app.js');
-
-describe.skip('API', () => {
-  before(() => {
-    this.server = app.listen(5000);
-    Browser.localhost('example.com', 5000);
-    this.browser = new Browser({waitDuration: 30*1000});
+describe('API', function() {
+  // 指定服务
+  var server;
+  before(function () {
+    server = require('./../server');
   });
-  after(() => {
-    return this.server.close();
+  after(function () {
+    server.close();
   });
-  describe('Post', () => {
-    it('可以看到标题', () => {
-
+  describe('/api/hello', function() {
+    it('should works.', function (done) {
+      request(server)
+        .get('/api/hello')
+        .expect('Content-Type', /json/)
+        // json 验证
+        .expect(200, {
+          two: '2',
+          hello: 'It works.',
+          one: '1'
+        })
+        .end(function(err,res) {
+          if (err) { throw err; }
+          // should 属性验证
+          // res.body.should.have.property('hello');
+          done();
+        });
     });
-    it('可以看到h1', () => {
+  });
 
-    });
-    it('可以看到h1内容改变', () => {
-
-    });
-    it('不能看到文章输入框', () => {
-
-    });
+  describe('/api/posts', function() {
+    it('index');
+    it('create');
   });
 });

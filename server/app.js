@@ -28,7 +28,7 @@ const config = require('./config');
 // app.set('view engine', 'ejs');
 
 app.use('/', express.static(__dirname + '/../web/public'));
-app.use('/assets/', express.static(__dirname + '/../web/dist'));
+app.use('/assets/', express.static(__dirname + '/../dist'));
 
 // 使用 LeanEngine 中间件
 app.use(AV.Cloud);
@@ -65,10 +65,6 @@ app.all('/api/*', (req, res, next) => {
   }
   next();
 });
-
-// app.get('/', (req, res, next) => {
-//   res.render('index');
-// });
 
 // api
 app.use('/api', apiRouter);

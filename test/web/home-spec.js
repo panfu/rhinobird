@@ -9,7 +9,7 @@ const assert = require('assert');
 
 const Browser = require('zombie');
 
-const app = require('../server/app.js');
+const app = require('../../server/app.js');
 
 describe('初体验', () => {
   before(() => {
@@ -29,6 +29,7 @@ describe('初体验', () => {
     it('可以看到h1', () => {
       this.browser.assert.text('h1', 'Welcome Home!');
       this.browser.assert.text('h4', 'hello <<<<<<<--- kaCHa');
+      // console.log(this.browser.AV);
     });
     it('可以看到h1内容改变', () => {
       // const b = this.browser;

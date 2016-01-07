@@ -1,11 +1,11 @@
 require('./css/main.css');
 // import 'riot';
 // const RiotControl = require('riotcontrol');
-require('./vendor/jquery');
+// require('./vendor/jquery');
 // const Promise = require('promise-polyfill/Promise');
-// require('./vendor/av')
+// const AV = require('./vendor/av');
 
-// AV.initialize("A", "B")
+AV.initialize("lciLdFa6ibbAXm3oiOfcE41w-gzGzoHsz", "AFtnt6RVgvFclL7QFIqjuO0K");
 
 riot.app = {
 

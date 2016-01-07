@@ -2,18 +2,41 @@
   <div id="container">
     <h4>hello { hello }</h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores ab inventore ut temporibus laudantium provident omnis, explicabo. Sequi quasi saepe qui, unde fugit, debitis, quaerat veritatis possimus libero ullam voluptates.</p>
+    <a href="#signup" onlick={ signup }>signup</a>
+    <a href="#register">register</a>
+    <a href="#logout">logout</a>
   </div>
 
   <script type="es6">
     this.hello = 'world';
 
+    this.signup = () => {
+      var user = new AV.User();
+      const botkey = 'bot' + Math.floor(Math.random(1) * 100000);
+      user.set('username', botkey);
+      user.set('password', '$#@!' + botkey);
+      user.set('email', botkey + '@mmmm.com');
+      user.signUp(null, {
+        success: function(user) {
+          // 注册成功，可以使用了.
+          console.log(user);
+        },
+        error: function(user, error) {
+          // 失败了
+          console.error('Error: ' + error.code + ' ' + error.message);
+
+        }
+      });
+    }
+
+
     this.on('mount', () => {
-      console.log(1)
+
+
       setTimeout(() => {
-        console.log(2)
         this.hello = '<<<<<<<--- kaCHa';
         this.update();
-      }, 1000)
+      }, 500)
     });
   </script>
 </app>
