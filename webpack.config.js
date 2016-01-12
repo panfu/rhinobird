@@ -24,8 +24,7 @@ module.exports = {
       riot: 'riot',
       RiotControl: 'riotcontrol',
       Promise: 'promise-polyfill/Promise',
-      jQuery: 'jquery',
-      // AV: 'AV'
+      jQuery: 'jquery'
     }),
     new webpack.HotModuleReplacementPlugin()
   ],

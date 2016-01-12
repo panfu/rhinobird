@@ -11,11 +11,10 @@
 
 let config = {
 
-  // 服务端 host
-  host: 'http://localhost:3000',
-
-  // web 开发环境的 host
-  webHost: 'http://localhost:9000',
+  yhsd: {
+    portal_secret: '7A3F3E60FBF643B0BD6D4CDDF825EC2D',
+    shop_domain: 'iroubo.v.youhaosuda.com'
+  },
 
   // 跨域白名单
   whiteOrigins: [
