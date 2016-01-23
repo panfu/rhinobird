@@ -37,10 +37,11 @@ after_success:
   - echo "{\"$LC_APP_ID\":{\"masterKey\":\"$LC_APP_MASTER_KEY\",\"appKey\":\"$LC_APP_KEY\"}}" > ~/.leancloud/app_keys
   - cat ~/.leancloud/app_keys
   - avoscloud add rhinobird $LC_APP_ID
-  - rm -rf node_modules
+  - mv node_modules ~/
   - avoscloud deploy
   - echo 开始进入 预发布测试 阶段
   - export APP_MODE=stagging
+  - mv ~/node_modules .
   - grunt test
   - avoscloud publish 
   - echo 开始进入 发布测试 阶段
