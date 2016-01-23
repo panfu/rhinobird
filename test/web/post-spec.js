@@ -2,18 +2,15 @@
 /* globals it, before, after, beforeEach, afterEach */
 'use strict';
 const assert = require('assert');
-const Browser = require('zombie');
-const app = require('../../server/app.js');
+const ZombieHelper = require('./helper');
 
 describe('Web', () => {
   before(() => {
-    this.server = app.listen(5000);
-    Browser.localhost('example.com', 5000);
-    this.browser = new Browser({waitDuration: 30*1000});
-    return this.browser.visit('/');
+    this.helper = new ZombieHelper(process.env.APP_MODE)
+    this.browser = this.helper.browser;
   });
   after(() => {
-    return this.server.close();
+    this.helper.closeServer();
   });
   describe('Post', () => {
     it('登录用户可以发帖', () => {
