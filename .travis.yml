@@ -26,12 +26,7 @@ before_script:
   - npm run-script build
   - echo 开始进入 部署前测试阶段
   - export APP_MODE=local
-# deploy:
-#   provider: script
-#   script: ./scripts/deploy.sh
-  # on:
-  # 	branch: develop
-after_success:
+after_script:
   - echo 开始进入 LeanCloud 部署阶段
   - mkdir -p ~/.leancloud
   - echo "{\"$LC_APP_ID\":{\"masterKey\":\"$LC_APP_MASTER_KEY\",\"appKey\":\"$LC_APP_KEY\"}}" > ~/.leancloud/app_keys
@@ -43,6 +38,7 @@ after_success:
   - export APP_MODE=stagging
   - mv ~/node_modules .
   - grunt test
+after_success:
   - avoscloud publish 
   - echo 开始进入 发布测试 阶段
   - export APP_MODE=production
