@@ -16,13 +16,13 @@ class ZombieHelper {
       case 'stagging':
         console.log(11);
         this.server = null;
-        this.browser = new Zombie({debug: true});
+        this.browser = new Zombie({debug: true, waitDuration: 30*1000});
         this.start_url = 'http://stg-rhinobird.leanapp.cn/';
         break;
       case 'production':
         console.log(111);
         this.server = null;
-        this.browser = new Zombie({debug: true});
+        this.browser = new Zombie({debug: true, waitDuration: 30*1000});
         this.start_url = 'http://rhinobird.leanapp.cn/';
         break;
       default:
