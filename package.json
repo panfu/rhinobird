@@ -6,7 +6,7 @@
     "start": "node --harmony server.js",
     "dev": "webpack-dev-server --inline --hot --content-base ./web/public/",
     "build": "grunt buildDev",
-    "test": "grunt test",
+    "test": "grunt DevTest",
     "watch": "grunt scout"
   },
   "repository": {

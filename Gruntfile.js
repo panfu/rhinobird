@@ -79,6 +79,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask('devTest', ['devServer', 'simplemocha:dev']);
   grunt.registerTask('test', 'simplemocha:dev');
   grunt.registerTask('buildDev', 'webpack:dev');
   grunt.registerTask('watchAndTest', ['forceOff', 'buildDev', 'forceOn', 'test', 'watch:dev']);
