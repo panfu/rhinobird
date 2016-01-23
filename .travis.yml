@@ -24,15 +24,26 @@ before_script:
   - npm install -g avoscloud-code
   - npm install -g grunt-cli
   - npm run-script build
+  - echo 开始进入 部署前测试阶段
+  - export APP_MODE=local
 # deploy:
 #   provider: script
 #   script: ./scripts/deploy.sh
   # on:
   # 	branch: develop
 after_success:
+  - echo 开始进入 LeanCloud 部署阶段
   - mkdir -p ~/.leancloud
   - echo "{\"$LC_APP_ID\":{\"masterKey\":\"$LC_APP_MASTER_KEY\",\"appKey\":\"$LC_APP_KEY\"}}" > ~/.leancloud/app_keys
   - cat ~/.leancloud/app_keys
   - avoscloud add rhinobird $LC_APP_ID
   - rm -rf node_modules
   - avoscloud deploy
+  - echo 开始进入 预发布测试 阶段
+  - export APP_MODE=stagging
+  - grunt test
+  - avoscloud publish 
+  - echo 开始进入 发布测试 阶段
+  - export APP_MODE=production
+  - grunt test
+  - export APP_MODE=local

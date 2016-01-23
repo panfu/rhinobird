@@ -6,7 +6,6 @@ const l = (o) => {
   console.log(o);
 };
 
-
 AV.Cloud.define("test", (request, response) => {
   console.log('just test');
   return response.success("it's ok");
