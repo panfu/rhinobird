@@ -5,6 +5,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-simple-mocha');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  // grunt.loadNpmTasks('grunt-express');
 
   grunt.initConfig({
     webpack: {
@@ -61,6 +62,10 @@ module.exports = function(grunt) {
     grunt.log.writeln(target + ': ' + filepath + ' has ' + action);
   });
 
+  grunt.registerTask('devServer', 'Start a web server for testing', function() {
+    require('./server/app.js').listen(5000);
+  });
+
   grunt.registerTask('forceOn', 'turns the --force option ON', function() {
     if ( !grunt.option( 'force' ) ) {
       grunt.config.set('forceStatus', true);
@@ -76,6 +81,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', 'simplemocha:dev');
   grunt.registerTask('buildDev', 'webpack:dev');
-  grunt.registerTask('scout', ['forceOff', 'buildDev', 'forceOn', 'test', 'watch:dev']);
+  grunt.registerTask('watchAndTest', ['forceOff', 'buildDev', 'forceOn', 'test', 'watch:dev']);
+  grunt.registerTask('scout', ['devServer', 'watchAndTest']);
 
 };

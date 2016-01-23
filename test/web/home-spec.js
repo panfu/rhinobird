@@ -12,7 +12,9 @@ describe('初体验', () => {
     return this.helper.browser.visit(this.helper.start_url);
   });
   after(() => {
-    this.helper.closeServer();
+    if (this.server) {
+      this.server.close();
+    }
   });
   describe('访问首页', () => {
     it('可以看到标题', () => {

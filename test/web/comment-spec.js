@@ -10,7 +10,11 @@ describe('Web', () => {
     this.browser = this.helper.browser;
   });
   after(() => {
-    this.helper.closeServer();
+    console.log(1);
+    if (this.server) {
+      console.log(1.1);
+      this.server.close();
+    }
   });
   describe('Comment', () => {
     it('登录用户可以发评论', (done) => {

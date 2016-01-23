@@ -6,14 +6,12 @@ const assert = require('assert');
 
 describe.skip('Web', () => {
   before(() => {
-    this.server = app.listen(5000);
-    Browser.localhost('example.com', 5000);
-    this.browser = new Browser({waitDuration: 30*1000});
-    return this.browser.visit('/');
+    this.helper = new ZombieHelper(process.env.APP_MODE)
+    this.browser = this.helper.browser;
   });
   after(() => {
     if (this.server) {
-      return this.server.close();
+      this.server.close();
     }
   });
   describe('User', () => {

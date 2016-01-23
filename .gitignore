@@ -8,6 +8,7 @@ bower_components/
 dist/
 zak/
 .DS_Store
+zak.js
 
 ###Node###
 

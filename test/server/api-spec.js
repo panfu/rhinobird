@@ -9,7 +9,7 @@ var request = require('supertest');
   // cookieParser = require('cookie-parser'),
   // session = require('express-session');
 
-describe('API', function() {
+describe.skip('API', function() {
   // 指定服务
   var server;
   before(function () {

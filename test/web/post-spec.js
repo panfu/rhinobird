@@ -10,8 +10,9 @@ describe('Web', () => {
     this.browser = this.helper.browser;
   });
   after(() => {
-    this.helper.closeServer();
-  });
+    if (this.server) {
+      this.server.close();
+    }  });
   describe('Post', () => {
     it('登录用户可以发帖', () => {
       assert.equal(-1, [1,2,3].indexOf(5));
